@@ -1,0 +1,27 @@
+{
+  "name": "graphql-the-movie-db-api",
+  "version": "1.0.0",
+  "description": "The Movie DB GraphQL API",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "graphql-api",
+    "tmdb",
+    "tmdb-api",
+    "tmdb-graphql"
+  ],
+  "author": "AmChrisKE",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-datasource-rest": "^3.6.1",
+    "apollo-server-core": "^3.10.0",
+    "apollo-server-express": "^3.10.0",
+    "express": "^4.18.1",
+    "graphql": "^16.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
