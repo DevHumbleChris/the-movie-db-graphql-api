@@ -26,6 +26,7 @@ async function startApolloServer(typeDefs, resolvers) {
         movieApi: new MovieAPI(),
       };
     },
+    introspection: true
   });
   await server.start();
   server.applyMiddleware({
