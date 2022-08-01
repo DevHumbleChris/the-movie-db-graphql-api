@@ -2,11 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
     scalar Date
-    type Friend {
-        name: String
-    }
     type Query {
-        friends: [Friend]
         trending(api_key: String!, media_type: String!, time_window: String!): [MovieDetails]
         tv(api_key: String!, tv_id: Int): TvQuery
     }
