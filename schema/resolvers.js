@@ -1,11 +1,11 @@
 const resolvers = {
     Query: {
-        trending: async (_, { api_key='27d24c908a5cad31bea867f46aaaa316', media_type, time_window}, { dataSources }) => {
-            const respData = await dataSources.movieApi.getTrendingMovies(api_key, media_type, time_window)
+        trending: async (_, { media_type, time_window}, { dataSources }) => {
+            const respData = await dataSources.movieApi.getTrendingMovies(media_type, time_window)
             return respData.results
         },
-        tv: async (_, { api_key='27d24c908a5cad31bea867f46aaaa316', tv_id }, { dataSources }) => {
-            const respData = await dataSources.movieApi.getTvDetails(api_key, tv_id)
+        tv: async (_, { tv_id }, { dataSources }) => {
+            const respData = await dataSources.movieApi.getTvDetails(tv_id)
             return respData
         }
     },
@@ -14,37 +14,37 @@ const resolvers = {
             return parent
         },
         recommendations: async ({ id: tv_id }, _, { dataSources }) => {
-            const respData = await dataSources.movieApi.getTvRecommendations(api_key='27d24c908a5cad31bea867f46aaaa316', tv_id)
+            const respData = await dataSources.movieApi.getTvRecommendations(tv_id)
             return respData.results
         },
         latest: async (_, __, { dataSources }) => {
-            const respData = await dataSources.movieApi.getTvLatest(api_key='27d24c908a5cad31bea867f46aaaa316')
+            const respData = await dataSources.movieApi.getTvLatest()
             return respData
         },
         airing_today: async (_, __, { dataSources }) => {
-            const respData = await dataSources.movieApi.getAiringToday(api_key='27d24c908a5cad31bea867f46aaaa316')
+            const respData = await dataSources.movieApi.getAiringToday()
             return respData.results
         },
         on_the_air: async (_, __, { dataSources }) => {
-            const respData = await dataSources.movieApi.getOnTheAir(api_key='27d24c908a5cad31bea867f46aaaa316')
+            const respData = await dataSources.movieApi.getOnTheAir()
             return respData.results
         },
         popular: async (_, __, { dataSources }) => {
-            const respData = await dataSources.movieApi.getPopular(api_key='27d24c908a5cad31bea867f46aaaa316')
+            const respData = await dataSources.movieApi.getPopular()
             return respData.results
         },
         top_rated: async (_, __, { dataSources }) => {
-            const respData = await dataSources.movieApi.getTopRated(api_key='27d24c908a5cad31bea867f46aaaa316')
+            const respData = await dataSources.movieApi.getTopRated()
             return respData.results
         },
         similar_tv_shows: async ({ id: tv_id}, __, { dataSources }) => {
-            const respData = await dataSources.movieApi.getSimilarTvShows(api_key='27d24c908a5cad31bea867f46aaaa316', tv_id)
+            const respData = await dataSources.movieApi.getSimilarTvShows(tv_id)
             return respData.results
         }
     },
     TvDetails: {
         videos: async ({ id: tv_id }, _, { dataSources }) => {
-            const respData = await dataSources.movieApi.getVideos(api_key='27d24c908a5cad31bea867f46aaaa316', tv_id)
+            const respData = await dataSources.movieApi.getVideos( tv_id)
             return respData.results
         }
     }

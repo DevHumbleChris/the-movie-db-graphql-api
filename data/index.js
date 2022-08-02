@@ -5,55 +5,41 @@ class MovieAPI extends RESTDataSource {
         super()
         this.baseURL = 'https://api.themoviedb.org/3/'
     }
-    getTrendingMovies(api_key, media_type, time_window) {
-        return this.get(`trending/${media_type}/${time_window}`, {
-            api_key
-        })
+    willSendRequest(request) {
+        request.params.set('api_key', this.context.api_key)
     }
-    getTvDetails(api_key, tv_id) {
-        return this.get(`tv/${tv_id}`, {
-            api_key
-        })
+    getTrendingMovies(media_type, time_window) {
+        return this.get(`trending/${media_type}/${time_window}`)
     }
-    getTvRecommendations(api_key, tv_id) {
-        return this.get(`tv/${tv_id}/recommendations`, {
-            api_key
-        })
+    getAllDayTrending() {
+        return this.get(`trending/all/day`)
     }
-    getTvLatest(api_key) {
-        return this.get(`tv/latest`, {
-            api_key
-        })
+    getTvDetails(tv_id) {
+        return this.get(`tv/${tv_id}`)
     }
-    getAiringToday(api_key) {
-        return this.get('tv/airing_today', {
-            api_key
-        })
+    getTvRecommendations(tv_id) {
+        return this.get(`tv/${tv_id}/recommendations`)
     }
-    getOnTheAir(api_key) {
-        return this.get('tv/on_the_air', {
-            api_key
-        })
+    getTvLatest() {
+        return this.get(`tv/latest`)
     }
-    getPopular(api_key) {
-        return this.get('tv/popular', {
-            api_key
-        })
+    getAiringToday() {
+        return this.get('tv/airing_today')
     }
-    getTopRated(api_key) {
-        return this.get('tv/top_rated', {
-            api_key
-        })
+    getOnTheAir() {
+        return this.get('tv/on_the_air')
     }
-    getSimilarTvShows(api_key, tv_id) {
-        return this.get(`tv/${tv_id}/similar`, {
-            api_key
-        })
+    getPopular() {
+        return this.get('tv/popular')
     }
-    getVideos(api_key, tv_id) {
-        return this.get(`tv/${tv_id}/videos`, {
-            api_key
-        })
+    getTopRated() {
+        return this.get('tv/top_rated')
+    }
+    getSimilarTvShows(tv_id) {
+        return this.get(`tv/${tv_id}/similar`)
+    }
+    getVideos(tv_id) {
+        return this.get(`tv/${tv_id}/videos`)
     }
 }
 

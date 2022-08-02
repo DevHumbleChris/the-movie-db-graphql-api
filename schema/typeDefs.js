@@ -3,8 +3,8 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
     scalar Date
     type Query {
-        trending(api_key: String!, media_type: String!, time_window: String!): [MovieDetails]
-        tv(api_key: String!, tv_id: Int): TvQuery
+        trending(media_type: String!, time_window: String!): [MovieDetails]
+        tv(tv_id: Int): TvQuery
     }
     type TvQuery {
         details: TvDetails

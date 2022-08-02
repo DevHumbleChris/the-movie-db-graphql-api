@@ -26,7 +26,12 @@ async function startApolloServer(typeDefs, resolvers) {
         movieApi: new MovieAPI(),
       };
     },
-    introspection: true
+    introspection: true,
+    context: () => {
+      return {
+        api_key: '27d24c908a5cad31bea867f46aaaa316'
+      }
+    }
   });
   await server.start();
   server.applyMiddleware({
