@@ -149,6 +149,7 @@ const typeDefs = gql`
         gender: Int
         profile_path: String
         known_for: [MovieDetails]
+        overview: String
     }
 `;
 
