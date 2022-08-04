@@ -5,6 +5,39 @@ const typeDefs = gql`
     type Query {
         trending(media_type: String!, time_window: String!): [MovieDetails]
         tv(tv_id: Int): TvQuery
+        movie(movie_id: Int): MovieInfoDetails
+    }
+    type MovieInfoDetails {
+        id: ID
+        adult: Boolean
+        backdrop_path: String
+        belongs_to_collection: BelongsToCollection
+        budget: Float
+        genres: [GenreDetails]
+        homepage: String
+        imdb_id: ID
+        original_language: String
+        original_title: String
+        overview: String
+        popularity: Float
+        poster_path: String
+        production_companies: [ProductionCompanies]
+        production_countries: [ProductionCountries]
+        release_date: Date
+        revenue: Float
+        spoken_languages: [Spokenlanguages]
+        status: String
+        tagline: String
+        title: String
+        video: Boolean
+        vote_average: Float
+        vote_count: Int
+    }
+    type BelongsToCollection {
+        id: ID
+        name: String
+        poster_path: String
+        backdrop_path: String
     }
     type TvQuery {
         details: TvDetails

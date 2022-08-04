@@ -41,6 +41,9 @@ class MovieAPI extends RESTDataSource {
     getVideos(tv_id) {
         return this.get(`tv/${tv_id}/videos`)
     }
+    getMovieDetails(movie_id) {
+        return this.get(`movie/${movie_id}`)
+    }
 }
 
 module.exports = { MovieAPI }

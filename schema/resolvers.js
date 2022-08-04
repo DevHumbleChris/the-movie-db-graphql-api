@@ -7,6 +7,10 @@ const resolvers = {
         tv: async (_, { tv_id }, { dataSources }) => {
             const respData = await dataSources.movieApi.getTvDetails(tv_id)
             return respData
+        },
+        movie: async (_, { movie_id }, { dataSources }) => {
+            const respData = await dataSources.movieApi.getMovieDetails(movie_id)
+            return respData
         }
     },
     TvQuery: {
