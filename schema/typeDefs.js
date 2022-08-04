@@ -36,6 +36,7 @@ const typeDefs = gql`
     type TvDetails {
         id: ID 
         adult: Boolean
+        backdrop_path: String
         created_by: [CreatedByDetails]
         episode_run_time: [Int]
         first_air_date: Date
