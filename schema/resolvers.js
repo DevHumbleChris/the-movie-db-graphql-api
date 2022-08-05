@@ -51,6 +51,12 @@ const resolvers = {
             const respData = await dataSources.movieApi.getVideos( tv_id)
             return respData.results
         }
+    },
+    MovieQuery: {
+        recommendations: async ({ id: movie_id}, _, { dataSources}) => {
+            const respData = await dataSources.movieApi.getMovieRecommendations(movie_id)
+            return respData
+        }
     }
 }
 

@@ -5,7 +5,11 @@ const typeDefs = gql`
     type Query {
         trending(media_type: String!, time_window: String!): [MovieDetails]
         tv(tv_id: Int): TvQuery
-        movie(movie_id: Int): MovieInfoDetails
+        movie(movie_id: Int): MovieQuery
+    }
+    type MovieQuery {
+        details: MovieInfoDetails
+        recommendations: MovieDetails
     }
     type MovieInfoDetails {
         id: ID
