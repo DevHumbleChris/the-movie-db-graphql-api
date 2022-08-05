@@ -47,6 +47,27 @@ class MovieAPI extends RESTDataSource {
     getMovieRecommendations(movie_id) {
         return this.get(`/movie/${movie_id}/recommendations`)
     }
+    getSimilarMovies(movie_id) {
+        return this.get(`movie/${movie_id}/similar`)
+    }
+    getLatestMovies() {
+        return this.get(`movie/latest`)
+    }
+    getNowPlayingMovies() {
+        return this.get(`movie/now_playing`)
+    }
+    getPopularMovies() {
+        return this.get(`/movie/popular`)
+    }
+    getTopRatedMovies() {
+        return this.get(`movie/top_rated`)
+    }
+    getUpcomingMovies() {
+        return this.get(`movie/upcoming`)
+    }
+    getMovieVideos(movie_id) {
+        return this.get(`movie/${movie_id}/videos`)
+    }
 }
 
 module.exports = { MovieAPI }

@@ -9,7 +9,13 @@ const typeDefs = gql`
     }
     type MovieQuery {
         details: MovieInfoDetails
-        recommendations: MovieDetails
+        recommendations: [MovieDetails]
+        similar_movies: [MovieDetails]
+        latest_movies: [MovieDetails]
+        now_playing: [MovieDetails]
+        popular_movies: [MovieDetails]
+        top_rated_movies: [MovieDetails]
+        upcoming_movies: [MovieDetails]
     }
     type MovieInfoDetails {
         id: ID
@@ -36,6 +42,7 @@ const typeDefs = gql`
         video: Boolean
         vote_average: Float
         vote_count: Int
+        videos: [VideoDetails]
     }
     type BelongsToCollection {
         id: ID

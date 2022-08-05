@@ -53,9 +53,42 @@ const resolvers = {
         }
     },
     MovieQuery: {
+        details: (parent) => {
+            return parent
+        },
         recommendations: async ({ id: movie_id}, _, { dataSources}) => {
             const respData = await dataSources.movieApi.getMovieRecommendations(movie_id)
-            return respData
+            return respData.results
+        },
+        similar_movies: async ({ id: movie_id }, _, { dataSources }) => {
+            const respData = await dataSources.movieApi.getSimilarMovies(movie_id)
+            return respData.results
+        },
+        latest_movies: async (_, __, { dataSources }) => {
+            const respData = await dataSources.movieApi.getLatestMovies()
+            return respData.results
+        },
+        now_playing: async (_, __, { dataSources }) => {
+            const respData = await dataSources.movieApi.getNowPlayingMovies()
+            return respData.results
+        },
+        popular_movies: async (_, __, { dataSources }) => {
+            const respData = await dataSources.movieApi.getPopularMovies()
+            return respData.results
+        },
+        top_rated_movies: async (_, __, { dataSources }) => {
+            const respData = await dataSources.movieApi.getTopRatedMovies()
+            return respData.results
+        },
+        upcoming_movies: async (_, __, { dataSources }) => {
+            const respData = await dataSources.movieApi.getUpcomingMovies()
+            return respData.results
+        }
+    },
+    MovieInfoDetails: {
+        videos: async ({ id: movie_id }, _, { dataSources }) => {
+            const respData = await dataSources.movieApi.getMovieVideos(movie_id)
+            return respData.results
         }
     }
 }
